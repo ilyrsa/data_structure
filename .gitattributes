@@ -1,13 +1,14 @@
-# Ignorar completamente a pasta de instâncias nas estatísticas
-instancias-num/** linguist-documentation
-instancias-num/** -linguist-detectable
+# Tratar arquivos .in como dados (não código)
+*.in linguist-vendored
+*.in -linguist-detectable
+
+# Para arquivos em subdiretórios específicos:
+instancias-num/* linguist-vendored
 
 # Forçar reconhecimento correto de linguagens
 *.c linguist-language=C
 *.h linguist-language=C
 *.py linguist-language=Python
 
-# Ignorar binários e arquivos gerados
+# Ignorar binários
 *.exe linguist-generated
-*.dat linguist-generated
-*.txt linguist-documentation
