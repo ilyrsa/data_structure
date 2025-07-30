@@ -125,74 +125,73 @@ public:
 int main()
 {
     ListaDin list;
-    int option, pos, val;
 
-    do
+    std::cout << "\n1. Verificando a lista recem-criada..." << std::endl;
+    std::cout << "Lista esta vazia? " << (list.isEmpty() ? "Sim" : "Não") << std::endl; // Operação 2 e 6 do seu menu
+    std::cout << "Tamanho da lista: " << list.size() << std::endl;                      // Operação 5
+    std::cout << "Imprimindo lista vazia: ";
+    list.printAll();
+
+    // Inserção de elementos
+    std::cout << "\n2. Inserindo elementos..." << std::endl; // Operação 1 do seu menu
+    try
     {
-        std::cout << "\n--- MENU ---\n";
-        std::cout << "1. Inserir elemento\n";
-        std::cout << "2. Remover elemento\n";
-        std::cout << "3. Obter elemento\n";
-        std::cout << "4. Modificar elemento\n";
-        std::cout << "5. Ver tamanho da lista\n";
-        std::cout << "6. Verificar se esta vazia\n";
-        std::cout << "7. Imprimir todos os elementos\n";
-        std::cout << "0. Sair\n";
-        std::cout << "Escolha alguma coisa: ";
-        std::cin >> option;
+        list.insert(1, 10);
+        std::cout << "Inserido valor 10 na posicao 1. Lista atual: ";
+        list.printAll();
 
-        try
-        {
-            switch (option)
-            {
-            case 1:
-                std::cout << "Digite a posicao para inserir: ";
-                std::cin >> pos;
-                std::cout << "Digite o valor: ";
-                std::cin >> val;
-                list.insert(pos, val);
-                break;
-            case 2:
-                std::cout << "Digite a posicao para remover: ";
-                std::cin >> pos;
-                val = list.remove(pos);
-                std::cout << "Valor removido: " << val << std::endl;
-                break;
-            case 3:
-                std::cout << "Digite a posicao para obter: ";
-                std::cin >> pos;
-                val = list.get(pos);
-                std::cout << "Valor: " << val << std::endl;
-                break;
-            case 4:
-                std::cout << "Digite a posicao para modificar: ";
-                std::cin >> pos;
-                std::cout << "Digite o novo valor: ";
-                std::cin >> val;
-                list.set(pos, val);
-                break;
-            case 5:
-                std::cout << "Tamanho da lista: " << list.size() << std::endl;
-                break;
-            case 6:
-                std::cout << "Lista esta vazia? " << (list.isEmpty() ? "Sim" : "Não") << std::endl;
-                break;
-            case 7:
-                list.printAll();
-                break;
-            case 0:
-                std::cout << "Saindo..." << std::endl;
-                break;
-            default:
-                std::cout << "Isso dae nao existe!" << std::endl;
-            }
-        }
-        catch (const std::exception &e)
-        {
-            std::cerr << "Erro: " << e.what() << std::endl;
-        }
+        list.insert(2, 30);
+        std::cout << "Inserido valor 30 na posicao 2. Lista atual: ";
+        list.printAll();
 
-    } while (option != 0);
+        list.insert(2, 20);
+        std::cout << "Inserido valor 20 na posicao 2. Lista atual: ";
+        list.printAll();
+        std::cout << "Tamanho atual: " << list.size() << std::endl;
+    }
+    catch (const std::exception &e)
+    {
+        std::cerr << "Erro inesperado na insercao: " << e.what() << std::endl;
+    }
+
+    // Obter e Modificar
+    std::cout << "\n3. Obtendo e modificando elementos..." << std::endl;
+    try
+    {
+        std::cout << "Valor na posicao 3: " << list.get(3) << std::endl;       // Operação 3
+        std::cout << "Modificando valor na posicao 3 para 99..." << std::endl; // Operação 4
+        list.set(3, 99);
+        std::cout << "Lista apos modificacao: ";
+        list.printAll();
+    }
+    catch (const std::exception &e)
+    {
+        std::cerr << "Erro ao obter/modificar: " << e.what() << std::endl;
+    }
+
+    // Remover elementos
+    std::cout << "\n4. Removendo elementos..." << std::endl; // Operação 2
+    try
+    {
+        int val = list.remove(1);
+        std::cout << "Valor removido da posicao 1: " << val << ". Lista atual: ";
+        list.printAll();
+
+        val = list.remove(2);
+        std::cout << "Valor removido da posicao 2: " << val << ". Lista atual: ";
+        list.printAll();
+    }
+    catch (const std::exception &e)
+    {
+        std::cerr << "Erro na remocao: " << e.what() << std::endl;
+    }
+
+    // Mostrando o final
+    std::cout << "\n5. Verificacoes finais..." << std::endl;
+    std::cout << "Tamanho final da lista: " << list.size() << std::endl;
+    std::cout << "Lista esta vazia? " << (list.isEmpty() ? "Sim" : "Nao") << std::endl;
+    std::cout << "Conteudo final: ";
+    list.printAll();
 
     return 0;
 }
