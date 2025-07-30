@@ -12,3 +12,6 @@ instancias-num/* linguist-vendored
 
 # Ignorar binários
 *.exe linguist-generated
+
+#Lida com line endings
+* text=auto
