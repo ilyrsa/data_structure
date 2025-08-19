@@ -19,7 +19,6 @@ O repositório está organizado nos seguintes módulos:
 
 ### 1. Listas (`/lists`)
 Implementações de diferentes tipos de listas.
-* **Lista Sequencial:** Implementação de uma lista utilizando armazenamento contíguo.
 * **Lista Dinâmica Sequencial:** Variação da lista sequencial com alocação dinâmica de memória.
 * **Lista Dinamicamente Encadeada:** Implementação de lista utilizando ponteiros.
 
