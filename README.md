@@ -94,6 +94,6 @@ Cada projeto possui sua própria forma de execução.
     ./programa
     ```
 
-## 🤝 Autora
+## 🍓 Autora
 
-* **Larissa Donato** - [ilyrsa](https://github.com/ilyrsa)
+* **Larissa Donato**: [@ilyrsa](https://github.com/ilyrsa)
